@@ -1,33 +1,56 @@
-function autoType(elementClass, typingSpeed){
-    var now = $(elementClass);
-    now.css({
-      "position": "relative",
-      "display": "inline-block"
-    });
-    now.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
-    now = now.find(".text-js");
-    var text = now.text().trim().split('');
-    var amtOfChars = text.length;
-    var newString = "";
-    now.text("|");
-    setTimeout(function(){
-        nows.css("opacity",1);
-        now.prev().removeAttr("style");
-        now.text("");
-      for(var i = 0; i < amtOfChars; i++){
-        (function(i,char){
-          setTimeout(function() {        
-            newString += char;
-            now.text(newString);
-          },i*typingSpeed);
-        })(i+1,text[i]);
-      }
-    },1500);
+//typing amation
+var aText = new Array(
+  "Hi!", 
+  "I'm Ngan Trieu",
+  "Web Dev"
+  );
+  var iSpeed = 100; // time delay of print out
+  var iIndex = 0; // start printing array at this posision
+  var iArrLength = aText[0].length; // the length of the text array
+  var iScrollAt = 20; // start scrolling up at this many lines
+   
+  var iTextPos = 0; // initialise text position
+  var sContents = ''; // initialise contents variable
+  var iRow; // initialise current row
+   
+  function typewriter()
+  {
+   sContents =  ' ';
+   iRow = Math.max(0, iIndex-iScrollAt);
+   var destination = document.getElementById("typedtext");
+   
+   while ( iRow < iIndex ) {
+    sContents += aText[iRow++] + '<br />';
+   }
+   destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+   if ( iTextPos++ == iArrLength ) {
+    iTextPos = 0;
+    iIndex++;
+    if ( iIndex != aText.length ) {
+     iArrLength = aText[iIndex].length;
+     setTimeout("typewriter()", 500);
+    }
+   } else {
+    setTimeout("typewriter()", iSpeed);
+   }
   }
+
+  typewriter()
   
-  $(document).ready(function(){
-    // Now to start autoTyping just call the autoType function with the 
-    // class of outer div
-    // The second paramter is the speed between each letter is typed.   
-    autoType(".type-js",200);
-  });
+  //range
+  var progressBar = $('.progress-bar');
+  var percentVal = 0;
+
+  let internal = window.setInterval(function(){
+    percentVal += 1;
+    progressBar.each((index, element) => {
+      console.log($(element).data("value"))
+      if ($(element).data("value") >= percentVal) {
+        $(element).css("width", percentVal+ '%').attr("aria-valuenow", percentVal+ '%').text(percentVal+ '%'); 
+      }
+      
+      if (percentVal == 100){
+        clearInterval(internal) 
+      }
+    });
+}, 5);

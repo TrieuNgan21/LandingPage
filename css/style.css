@@ -21,7 +21,7 @@ nav ul, .main-info-section, .work-categogy{
 }
 
 body{
-    background-color: aquamarine;
+    background-color: aquamarine !important ;
 }
 
 header{
@@ -29,9 +29,17 @@ header{
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px 0;
+    width: 100%;
 }
 
-.navbar{
+/* .navbar{
+    padding: 0px;
+    background-color: mediumpurple;
+    display: flex;
+    justify-content: space-between;
+} */
+
+.mybr {
     padding: 0px;
     background-color: mediumpurple;
     display: flex;
@@ -58,7 +66,7 @@ li{
 }
 
 .text{
-    margin-top: 120px;
+    margin-top: 30px;
 }
 
 .text h1{
@@ -107,6 +115,7 @@ li{
 }
 
 .profile-image img{
+    margin: 10px;
     width: 450px;
     margin-top: 100px;
 } 
@@ -197,7 +206,20 @@ li{
     width: calc(0 - 6px);
 }
 
-button {
+.btn-primary{
+    text-transform: capitalize !important;
+    border: 3px solid #ed5565 !important;
+    padding: 15px 30px !important;
+    border-radius: 16px !important;
+    color: #ed5565 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 1px !important;
+    background-color: #252627 !important;
+    outline: none !important;
+    cursor: pointer !important;
+}
+
+/* button {
     text-transform: capitalize;
     border: 3px solid #ed5565;
     padding: 15px 30px;
@@ -208,7 +230,7 @@ button {
     background-color: #252627;
     outline: none;
     cursor: pointer;
-}
+} */
 
 .work a{
     justify-self: center;
@@ -224,6 +246,9 @@ button.active{
     color: #fff;
 }
 
+.hinh{
+    width: 100%;
+}
 .work a img{
     width: 350px;
     justify-self: center;
@@ -239,42 +264,38 @@ div.hideCategory{
 
 .contact{
     margin-top: 50px;
+    margin: 0 auto;
 }
 
-form input, form textarea{
+.ipcontact {
     display: block;
     width: 500px;
     padding: 20px;
     background-color: #252627;
-    border: 3px solid #707070;
-    margin: 20px 0;
+    border: 3px solid #e62121;
     outline: none;
     font-size: 1.2rem;
     color: #fff;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
     border-radius: 5px;
 }
 
-form input:last-child{
+.ipcontact:last-child{
     width: 150px;
     background-color: #ed5565;
     border: none;
     cursor: pointer;
+    margin: 0 auto;
 }
 
-footer hr {
+.hr1 {
     border: 2px solid #707070;
     margin-top: 80px;
 }
 
-footer p{
+.pfooter{
     text-align: center;
     color: #707070;
     font-size: 1.2rem;
-    padding: 30px 0;
 }
 
 
